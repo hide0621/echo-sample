@@ -14,13 +14,13 @@ type Content struct {
 	Text string `json:"text"`
 }
 
-// DBのインスタンスをグローバル変数に格納
+// DBのインスタンスをグローバル変数に格納する
 var (
 	db *gorm.DB
 )
 
 func main() {
-	// DB接続処理
+	// DBの接続処理
 	var err error
 	// 第一引数はドライバー、第二引数は使用するテーブル
 	db, err = gorm.Open("sqlite3", "gorm.db")
@@ -34,8 +34,8 @@ func main() {
 	e := echo.New()
 
 	// ルーティングの設定
-	e.GET("/contents", getALlContent)
-	e.POST("/create", createContent)
+	e.GET("/contents", getALlContent) //ブラウザから確認可
+	e.POST("/create", createContent)  //postmanなどからのみ確認可
 
 	// サーバー起動
 	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
