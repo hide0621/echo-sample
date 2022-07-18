@@ -7,6 +7,7 @@ import (
 	"github.com/labstack/echo"
 )
 
+//以下の書き方は構文のようなもの
 func main() {
 
 	// echoパッケージにより簡単にサーバーのインスタンスを作成
